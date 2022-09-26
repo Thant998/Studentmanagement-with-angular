@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<link href="/test.css" rel="stylesheet">
+<title> Student Registration LGN001 </title>
+<style>
+	#togglePassword{
+		position: absolute;
+		width: 50px; height: 50px;
+		right: 40px;
+		bottom: 115px;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body class="login-page-body"> 
+  
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h1>Welcome!</h1>
+            <p th:if="${error}" th:text="${error}"></p>
+          </div>
+        </div>
+        <form class="login-form" th:action="@{/login}" method="post" name="confirm">
+          <input type="text" name="id" placeholder="User ID" value="" autofocus />
+          <input type="password" name="password" id="password"  placeholder="Password" /><i class="bi bi-eye-slash" 
+                    id="togglePassword"></i>
+          <button>login</button>
+          <p class="message">Not registered? <a th:href="@{/userRegister}">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+    <script>
+        const togglePassword = document
+            .querySelector('#togglePassword');
+  
+        const password = document.querySelector('#password');
+  
+        togglePassword.addEventListener('click', () => {
+  
+            // Toggle the type attribute using
+            // getAttribure() method
+            const type = password
+                .getAttribute('type') === 'password' ?
+                'text' : 'password';
+                  
+            password.setAttribute('type', type);
+  
+            // Toggle the eye and bi-eye icon
+            togglePassword.classList.toggle('bi-eye');
+        });
+    </script>
+</body>
+
+</html>

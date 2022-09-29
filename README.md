@@ -1,2 +1,4 @@
 # Studentmanagement-with-angular
-This is Student Registration project using springboot and angular
+Student Registration backend using springboot and jpa
+
+
